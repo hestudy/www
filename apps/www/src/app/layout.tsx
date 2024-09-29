@@ -3,7 +3,9 @@ import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
+import { IconHome } from "@tabler/icons-react";
 import { TRPCReactProvider } from "~/trpc/react";
+import { FloatingNav } from "./_components/FloatingNavbar";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -15,9 +17,22 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
-      <body>
-        <TRPCReactProvider>{children}</TRPCReactProvider>
+    <html lang="zh" className={`${GeistSans.variable}`}>
+      <body className="bg-neutral-50">
+        <TRPCReactProvider>
+          <div className="relative">
+            <FloatingNav
+              navItems={[
+                {
+                  link: "/",
+                  name: "Home",
+                  icon: <IconHome />,
+                },
+              ]}
+            ></FloatingNav>
+            {children}
+          </div>
+        </TRPCReactProvider>
       </body>
     </html>
   );
