@@ -4,7 +4,6 @@ import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
-import { SlashNode } from "./nodes/SlashNode";
 import SlashPlugin from "./plugins/SlashPlugin";
 
 const theme = {
@@ -24,13 +23,13 @@ const Editor = () => {
     namespace: "MyEditor",
     theme,
     onError,
-    nodes: [SlashNode],
+    nodes: [],
   };
 
   return (
     <LexicalComposer initialConfig={initialConfig}>
       <RichTextPlugin
-        contentEditable={<ContentEditable />}
+        contentEditable={<ContentEditable className="outline-0" />}
         placeholder={<div>Enter some text...</div>}
         ErrorBoundary={LexicalErrorBoundary}
       />

@@ -29,6 +29,7 @@
     "pre-commit": "npx lint-staged"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.26.24",
     "@lexical/react": "^0.18.0",
     "@modern-js/plugin-tailwindcss": "2.60.2",
     "clsx": "^2.1.1",
